@@ -492,3 +492,51 @@ def main():
         print("8. Save Mission")
         print("9. View Mission Log")
         print("10. Exit")
+
+        try: 
+
+            choice = int(input("\nEnter your choice: "))
+
+            if choice == 1: 
+                mission.add_crew_member()
+
+            elif choice == 2: 
+                mission.view_crew()
+
+            elif choice == 3: 
+                mission.update_crew_member()
+
+            elif choice == 4: 
+                mission.delete_crew_member()
+
+            elif choice == 5: 
+                mission.perform_crew_duties()
+
+            elif choice == 6: 
+                mission.start_day()
+
+            elif choice == 7: 
+                mission.spacecraft.display_status()
+
+            elif choice == 8: 
+                mission.save_mission()
+
+            elif choice == 9: 
+                mission.view_mission_log()
+
+            elif choice == 10: 
+                print("\nSaving mission before exit...")
+                mission.save_mission()
+                print("Mission saved.")
+                print("Goodbye, Captain!")
+                break
+
+            else: 
+                print("Please enter a number between 1 and 10.")
+
+        except ValueError: 
+            print("\nInvalid input!")
+            print("Please enter a number.")
+
+if __name__ == "__main__": 
+    main()
