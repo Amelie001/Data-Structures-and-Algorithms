@@ -45,3 +45,63 @@ class Restaurant:
         else: 
             print("Latest order:")
             print(self.orders[-1])
+
+    def update_order(self): 
+        if len(self.orders) == 0: 
+            print("No orders available.")
+
+        else: 
+            order = self.orders[-1]
+
+            order["food"] = input("Enter updated food item: ")
+            order["quantity"] = int(input("Enter updated quantity: "))
+            order["price"] = float(input("Enter updated price: "))
+
+            print("Order updated successfully!")
+
+    def prepare_order(self): 
+        if len(self.orders) == 0: 
+            print("No orders to prepare.")
+
+        else: 
+            order = self.orders.pop()
+
+            print("\nOrder prepared successfully!")
+            print("Order ID:", order["id"])
+            print("Customer:", order["customer"])
+            print("Food:", order["food"])
+
+restaurant = Restaurant()
+
+while True: 
+
+    print("\n--- RESTAURANT ORDER MANAGER ---")
+    print("1. Add order")
+    print("2. Display orders")
+    print("3. View latest order")
+    print("4. Update latest order")
+    print("5. Prepare latest order")
+    print("6. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1": 
+        restaurant.add_order()
+
+    elif choice == "2": 
+        restaurant.display_orders()
+
+    elif choice == "3": 
+        restaurant.view_latest_order()
+
+    elif choice == "4": 
+        restaurant.update_order()
+
+    elif choice == "5": 
+        restaurant.prepare_order()
+
+    elif choice == "6": 
+        break
+
+    else: 
+        print("Invalid choice.")
