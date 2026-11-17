@@ -45,3 +45,64 @@ class HospitalQueue:
                 return
 
         print("Patient not found.")
+
+    def delete(self): 
+        pid = input("Enter patient ID to delete: ")
+
+        for p in self.queue: 
+            if p["id"] == pid: 
+                self.queue.remove(p)
+                print("Patient deleted.")
+                return
+
+        print("Patient not found.")
+
+    def dequeue(self): 
+        if self.queue:
+            print("Next patient:", self.queue.pop(0))
+
+        else: 
+            print("Queue is empty.")
+
+    def peek(self):
+        if self.queue:
+            print("Next patient:", self.queue[0])
+
+        else: 
+            print("Queue is empty.")
+
+    def menu(self): 
+        while True:
+            print("\n1. Add  2. Display  3. Search  4. Update")
+            print("5. Delete by ID  6. Call next  7. Peek  8. Exit")
+            choice = input("Enter choice: ")
+
+            if choice == "1": 
+                self.add_patient()
+
+            elif choice == "2": 
+                self.display()
+
+            elif choice == "3": 
+                self.search()
+
+            elif choice == "4": 
+                self.update()
+
+            elif choice == "5": 
+                self.delete()
+
+            elif choice == "6": 
+                self.dequeue()
+
+            elif choice == "7": 
+                self.peek()
+
+            elif choice == "8": 
+                break
+
+            else:
+                print("Invalid choice.")
+
+app = HospitalQueue()
+app.menu()
